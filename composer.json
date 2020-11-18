@@ -1,0 +1,21 @@
+{
+    "name": "mbloise/payment-service",
+    "description": "Project to implement new payment contracts by OOP\u001b[24~\u001b[OOP",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Application\\": "src/",
+            "Payment\\": "src/Services/Payments/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Matheus Bloise Vieira",
+            "email": "46876171+mathbloise@users.noreply.github.com"
+        }
+    ],
+    "require": {},
+    "scripts": {
+        "server": "php -S localhost:9999 -t public"
+    }
+}
