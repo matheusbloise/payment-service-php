@@ -26,5 +26,4 @@ class PaymentService
     {
         return $this->payment->payment($value);
     }
-    
 }

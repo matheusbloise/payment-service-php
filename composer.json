@@ -1,11 +1,12 @@
 {
-    "name": "mbloise/payment-service",
-    "description": "Project to implement new payment contracts by OOP\u001b[24~\u001b[OOP",
+    "name": "matheusbloise/payment-service",
+    "description": "Project to implement new payment contracts using Strategy Pattern",
     "license": "MIT",
     "autoload": {
         "psr-4": {
             "Application\\": "src/",
-            "Payment\\": "src/Services/Payments/"
+            "Payment\\": "src/Services/Payments/",
+            "Test\\": "tests/"
         }
     },
     "authors": [
@@ -14,8 +15,10 @@
             "email": "46876171+mathbloise@users.noreply.github.com"
         }
     ],
-    "require": {},
+    "require": {
+        "phpunit/phpunit": "^9.5"
+    },
     "scripts": {
         "server": "php -S localhost:9999 -t public"
-    }
+     }
 }
