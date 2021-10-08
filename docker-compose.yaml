@@ -1,0 +1,40 @@
+version: "3.7"
+
+services:
+  php:
+    container_name: php
+    image: matheusbloise/php:8.0-fpm-alpine-dev
+    volumes:
+      - "./:/app"
+
+  sonarqube:
+    container_name: sonarqube
+    image: sonarqube:9.1.0-community
+    ports:
+      - "9000:9000"
+    volumes:
+      - "sonar-data:/opt/sonarqube/data"
+      - "sonar-logs:/opt/sonarqube/logs"
+      - "sonar-extensions:/opt/sonarqube/extensions"
+    networks:
+      sonarnet:
+
+  sonarqube-scanner-cli:
+    container_name: sonarqube-scanner-cli
+    image: sonarsource/sonar-scanner-cli:4.4
+    working_dir: "/app"
+    volumes:
+      - "./:/app"
+    depends_on:
+      - sonarqube
+    networks:
+      sonarnet:
+
+volumes:
+  sonar-data:
+  sonar-logs:
+  sonar-extensions:
+
+networks:
+  sonarnet:
+    driver: bridge
